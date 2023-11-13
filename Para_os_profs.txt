@@ -1,7 +1,0 @@
-Bom dia/Boa tarde/Boa noite professor(es),
-Sinceramente, tenho tentando me manter em acordo com as entregas esperadas, porém não tenho conseguido fazer progresso qualquer desde junho.
-Não estou conseguindo seguir a matéria, e não sei como implementar os microsserviços necessários.
-A esse ponto já sei que não vou conseguir fazer nada perto do necessário para a última entrega no 02/09.
-Já perguntei várias vezes no passado, porém nunca recebi uma resposta - Existe qualquer material, qualquer coisa que possa utilizar para me ajudar a entender a matéria?
-
-Atenciosamente, Johannes Mattheus Krouwel.

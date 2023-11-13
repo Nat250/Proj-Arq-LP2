@@ -3,7 +3,7 @@ const { default: axios } = require('axios')
 
 
 const express = require('express');
-const keywordService = require('./keywords_extracao');
+// const keywordService = require('./keywords_extracao');
 const app = express();
 const port = 3000;
 app.use(express.json());

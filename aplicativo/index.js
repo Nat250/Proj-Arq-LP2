@@ -17,6 +17,8 @@ app.listen(port, () => {
 });
 
 // Alterações do Marcel
+// O código funciona, mas ele fez tudo em html ao invés de Javascript
+// E sinceramente não sei como implementar isso no barramento de eventos quando nem sei como tal funciona direito
 
 // <!DOCTYPE html>
 // <html lang="en">

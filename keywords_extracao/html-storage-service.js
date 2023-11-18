@@ -1,40 +1,43 @@
-const express = require('express');
-const Datastore = require('nedb');
-const path = require('path');
+//Um arquivo que o Marcel fez que era para guardar keywords
+//Não deu certo no meio do desenvolvimento
 
-const app = express();
-const port = 5000;
+// const express = require('express');
+// const Datastore = require('nedb');
+// const path = require('path');
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// const app = express();
+// const port = 5000;
 
-const db = new Datastore({ filename: 'html-database.db', autoload: true });
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.static('public'));
 
-app.post('/save', (req, res) => {
-    const { htmlContent } = req.body;
-    const page = { htmlContent, timestamp: Date.now() };
+// const db = new Datastore({ filename: 'html-database.db', autoload: true });
 
-    db.insert(page, (err, newPage) => {
-        if (err) {
-            res.status(500).send('Erro ao salvar a página.');
-        } else {
-            res.json({ id: newPage._id });
-        }
-    });
-});
+// app.post('/save', (req, res) => {
+//     const { htmlContent } = req.body;
+//     const page = { htmlContent, timestamp: Date.now() };
 
-app.get('/page/:id', (req, res) => {
-    const pageId = req.params.id;
+//     db.insert(page, (err, newPage) => {
+//         if (err) {
+//             res.status(500).send('Erro ao salvar a página.');
+//         } else {
+//             res.json({ id: newPage._id });
+//         }
+//     });
+// });
 
-    db.findOne({ _id: pageId }, (err, page) => {
-        if (err || !page) {
-            res.status(404).send('Página não encontrada.');
-        } else {
-            res.send(page.htmlContent);
-        }
-    });
-});
+// app.get('/page/:id', (req, res) => {
+//     const pageId = req.params.id;
 
-app.listen(port, () => {
-    console.log(`Microsserviço de Armazenamento de HTML rodando em http://localhost:${port}`);
-});
+//     db.findOne({ _id: pageId }, (err, page) => {
+//         if (err || !page) {
+//             res.status(404).send('Página não encontrada.');
+//         } else {
+//             res.send(page.htmlContent);
+//         }
+//     });
+// });
+
+// app.listen(port, () => {
+//     console.log(`Microsserviço de Armazenamento de HTML rodando em http://localhost:${port}`);
+// });

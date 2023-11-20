@@ -3,13 +3,13 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const baseConsulta = {}
+const baseDeConsulta = {}
 
 const funcoes = {
-    TextoSubmetido: (texto) => {
-
+    TextoSubmetido: (pedido) => {
+      baseDeConsulta[pedido.textid] = pedido
     },
-    KeywordsRegistrados: (keywords) => {
+    ExtractKeywords: (keywords) => {
         
     }
 }

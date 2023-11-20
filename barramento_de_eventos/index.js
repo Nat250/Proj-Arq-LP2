@@ -8,9 +8,7 @@ const { default: axios } = require('axios')
 const express = require('express')
 const app = express()
 app.use(express.json())
-
 const eventos = []
-
 const PORT = process.env.PORT || 10000
 
 app.post('/eventos', async (req, res) => {
@@ -43,6 +41,6 @@ app.post('/eventos', async (req, res) => {
   
   app.listen(
     PORT,
-    () => console.log(`Barramento. ${PORT}.`)
+    () => console.log(`Barramento de eventos. ${PORT}.`)
   )
   

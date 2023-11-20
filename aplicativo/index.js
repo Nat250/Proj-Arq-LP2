@@ -7,10 +7,22 @@ const express = require('express');
 const app = express();
 const port = 4000;
 app.use(express.json());
-app.post('/keywords', (req, res) => {
+
+let textid = 100
+const pedido = {}
+app.post('/aplicativo', (req, res) => {
+  textid = textid + 1
   const text = req.body.text;
-  const keywords = keywordService.extractKeywords(text);
-  res.json({ keywords });
+  pedido[textid] = {textid, text}
+  // const keywords = keywordService.extractKeywords(text);
+  axios.post(
+    'http://localhost:10000/eventos',{
+      tipo: 'TextoSubmetido',
+      dados: {textid, text}
+    }
+  )
+  // res.json({ keywords });
+  res.status(201).json(pedido[textid])
 });
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

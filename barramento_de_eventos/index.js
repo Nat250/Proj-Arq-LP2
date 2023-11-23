@@ -29,7 +29,7 @@ app.post('/eventos', async (req, res) => {
   })
   
   app.get('/eventos', (req, res) => {
-    res.json(eventos)
+    res.send(eventos)
   })
   
   app.listen(

@@ -28,6 +28,15 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
+app.get('/aplicativo', (req, res) => {
+  res.send(pedido)
+})
+
+app.post('/eventos', (req, res) => {
+  console.log(req.body)
+  res.status(200).json({msg: 'ok'})
+})
+
 // Alterações do Marcel
 // O código funciona, mas ele fez tudo em html ao invés de Javascript
 // E sinceramente não sei como implementar isso no barramento de eventos quando nem sei como tal funciona direito

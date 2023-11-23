@@ -13,14 +13,12 @@ app.post('/eventos', async (req, res) => {
     //aplicativo
     try{
       await axios.post('http://localhost:4000/eventos', evento)
-    }
-    catch(e){}
+    } catch(e){}
   
     //keywords_extracao
     try{
       await axios.post('http://localhost:5000/eventos', evento)
-    }
-    catch(e){}
+    } catch(e){}
   
     //consulta
     try{

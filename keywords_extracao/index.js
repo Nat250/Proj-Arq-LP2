@@ -32,6 +32,7 @@ const { default: axios } = require('axios')
 const express = require('express')
 const app = express()
 app.use(express.json())
+const port = 5000;
 
 const natural = require('natural');
 natural.PorterStemmer.attach();
@@ -43,9 +44,10 @@ const aplicativoParaKeywords = {}
 const funcoes = {
     // Extraindo keywords
     extractKeywords: (keywords) => {
-        const text = aplicativoParaKeywords[keywords.textid]
+        const textinfo = aplicativoParaKeywords[pedido.textid]
+        const textRelevante = textinfo.find((ti) => ti.textid === textinfo.textid)
         const tokenizer = new natural.WordTokenizer();
-        const words = tokenizer.tokenize(text);
+        const words = tokenizer.tokenize(textRelevante.text);
         const stopwords = natural.stopwords;
         const filteredWords = words.filter((word) => !stopwords.includes(word.toLowerCase()));
         const stemmedWords = filteredWords.map((word) => word.stem());
@@ -57,7 +59,7 @@ const funcoes = {
             totalKeywords = sortedKeywords.slice(0, 5);
         keywordId = keywordId + 1;
         axios.post('http://localhost:10000/eventos', {
-            tipo: 'ExtractKeywords',
+            tipo: 'KeywordsExtraidas',
             dados: {
                 textid: keywords.textid,
                 keywordlist: keywords.totalKeywords,
@@ -66,6 +68,16 @@ const funcoes = {
               })
     }
 }
+
+app.post('/eventos', (req, res) => {
+    console.log(req.body)
+    funcoes[req.body.tipo](req.body.dados)
+    res.status(200).send({msg: 'ok'})
+})
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 
 module.exports = { extractKeywords };
 

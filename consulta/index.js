@@ -9,14 +9,11 @@ const funcoes = {
     TextoSubmetido: (pedido) => {
       baseDeConsulta[pedido.textid] = pedido
     },
-    ExtractKeywords: (keywords) => {
-        
+    KeywordsExtraidas: (keywords) => {
+      baseDeConsulta[keywords.keywordId] = keywords
     }
 }
 
-app.get("/aplicativo", (req, res) => {
-    
-});
 
 app.post('/eventos', function (req, res){
     console.log(req.body)

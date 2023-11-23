@@ -1,8 +1,3 @@
-// O barramento de eventos está assim porque estou tentando entendê-lo
-// Com certeza não vai estar desse jeito assim que eu implementá-lo corretamente
-// Não tenho conseguido entender o exemplo do professor Bossini
-// Então implementei o código do github dele para tentar ver como tudo se encaixa
-
 require('dotenv').config()
 const { default: axios } = require('axios')
 const express = require('express')

@@ -11,3 +11,9 @@
 
 # Video Projeto Parte 2:
 # https://youtu.be/qE5b-2znSu0
+
+# Video Projeto Parte 1:
+# https://youtu.be/iWWXbHR4sUQ
+
+# Video Projeto Parte 2:
+# https://youtu.be/qE5b-2znSu0

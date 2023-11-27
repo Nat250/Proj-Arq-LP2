@@ -15,8 +15,7 @@ app.post('/aplicativo', (req, res) => {
   const text = req.body.text;
   pedido[textid] = {textid, text}
   // const keywords = keywordService.extractKeywords(text);
-  axios.post(
-    'http://localhost:10000/eventos',{
+  axios.post("http://barramento-de-eventos-service:10000/eventos",{
       tipo: 'TextoSubmetido',
       dados: {textid, text}
     }

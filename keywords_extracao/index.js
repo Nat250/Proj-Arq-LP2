@@ -58,7 +58,7 @@ const funcoes = {
         const sortedKeywords = Object.keys(wordFrequency).sort((a, b) => wordFrequency[b] - wordFrequency[a]);
             totalKeywords = sortedKeywords.slice(0, 5);
         keywordId = keywordId + 1;
-        axios.post('http://localhost:10000/eventos', {
+        axios.post("http://barramento-de-eventos-service:10000/eventos", {
             tipo: 'KeywordsExtraidas',
             dados: {
                 textid: keywords.textid,

@@ -12,22 +12,22 @@ app.post('/eventos', async (req, res) => {
     console.log(evento)
     //aplicativo
     try{
-      await axios.post('http://localhost:4000/eventos', evento)
+      await axios.post("http://aplicativo-clusterip-service:4000/eventos", evento)
     } catch(e){}
   
     //keywords_extracao
     try{
-      await axios.post('http://localhost:5000/eventos', evento)
+      await axios.post("http://keywords-extracao-clusterip-service:5000/eventos", evento)
     } catch(e){}
   
     //consulta
     try{
-      await axios.post('http://localhost:6000/eventos', evento)
+      await axios.post("http://consulta-clusterip-service:6000/eventos", evento)
     } catch(e){}
 
     //src
     try{
-      await axios.post('http://localhost:7000/eventos', evento)
+      await axios.post("http://src-clusterip-service:7000/eventos", evento)
     } catch(e){}
   
     res.status(200).send({msg: 'ok'})

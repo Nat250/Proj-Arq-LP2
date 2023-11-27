@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: src-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: src
+  template:
+    metadata:
+      labels:
+        app: src
+    spec:
+      containers:
+        - name: src
+          image: Nat250/src
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: src-clusterip-service
+spec:
+  selector:
+    app: src
+  ports:
+    - name: src
+      protocol: TCP
+      port: 7000
+      targetPort: 7000
